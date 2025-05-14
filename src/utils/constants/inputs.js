@@ -7,6 +7,7 @@ export const inputTypes = {
 			category: 'Página',
 			component: 'CdsText',
 			props: {
+				modelValue: null,
 				as: 'h3',
 				noMargin: true,
 				content: 'Título de exemplo',
@@ -20,6 +21,7 @@ export const inputTypes = {
 			category: 'Página',
 			component: 'CdsText',
 			props: {
+				modelValue: null,
 				as: 'h6',
 				noMargin: true,
 				content: 'Subtítulo de exemplo',
@@ -33,6 +35,7 @@ export const inputTypes = {
 			category: 'Página',
 			component: 'CdsText',
 			props: {
+				modelValue: null,
 				as: 'p',
 				content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
 			},
@@ -44,7 +47,9 @@ export const inputTypes = {
 			subtitle: 'Separador visual entre seções.',
 			category: 'Página',
 			component: 'CdsDivider',
-			props: {},
+			props: {
+				modelValue: null,
+			},
 			validation: {},
 		},
 		{
@@ -54,6 +59,7 @@ export const inputTypes = {
 			category: 'Página',
 			component: 'CdsAlertCard',
 			props: {
+				modelValue: null,
 				title: 'Aviso',
 				subtitle: 'Separação visual entre seções.',
 				variant: 'info',
@@ -70,6 +76,7 @@ export const inputTypes = {
 			component: 'CdsTextInput',
 			category: 'Texto',
 			props: {
+				modelValue: null,
 				inputType: 'text',
 				lazy: false,
 				label: 'Texto curto',
@@ -90,6 +97,7 @@ export const inputTypes = {
 			icon: 'menu-outline',
 			category: 'Texto',
 			props: {
+				modelValue: null,
 				label: 'Texto longo',
 				placeholder: 'Digite algo...',
 			},
@@ -108,6 +116,7 @@ export const inputTypes = {
 			icon: 'menu-outline',
 			category: 'Texto',
 			props: {
+				modelValue: null,
 				label: 'Valor',
 				placeholder: 'Digite algo...',
 				money: false,
@@ -127,6 +136,7 @@ export const inputTypes = {
 			icon: 'phone-outline',
 			category: 'Texto',
 			props: {
+				modelValue: null,
 				inputType: 'tel',
 				lazy: false,
 				label: 'Telefone',
@@ -148,6 +158,7 @@ export const inputTypes = {
 			icon: 'mail-outline',
 			category: 'Texto',
 			props: {
+				modelValue: null,
 				inputType: 'email',
 				lazy: false,
 				label: 'Email',
@@ -168,6 +179,7 @@ export const inputTypes = {
 			icon: 'calendar-outline',
 			category: 'Texto',
 			props: {
+				modelValue: null,
 				label: 'Data',
 				variant: 'blue',
 				range: false,
@@ -195,6 +207,7 @@ export const inputTypes = {
 			category: 'Escolha',
 			component: 'CdsRadioButtonGroup',
 			props: {
+				modelValue: null,
 				label: 'Selecione uma das opções',
 				allowsExpand: true,
 				options: [
@@ -228,6 +241,7 @@ export const inputTypes = {
 			icon: 'checkbox-checked-outlined',
 			category: 'Escolha',
 			props: {
+				modelValue: null,
 				label: 'Selecione uma ou mais opções',
 				options: [
 					{
@@ -452,6 +466,7 @@ export const componentProps = {
 			'required',
 		],
 		validation: [
+			'required',
 			'alpha',
 			'max',
 			'min',

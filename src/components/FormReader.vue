@@ -1,9 +1,9 @@
 <template>
 	<div class="form-reader">
 		<Form class="form-container">
-			<template v-for="(formField, index) in form" :key="index">
+			<template v-for="(formField, index) in model" :key="index">
 				<Field
-					v-if="isValidatableComponent(formField.component)"
+					v-if="isValidComponent(formField.component)"
 					v-slot="{ field, errors, meta }"
 					:name="formField.name || `field-${index}`"
 					:rules="computedRules(formField)"
@@ -13,6 +13,7 @@
 					<component
 						:is="formField.component"
 						v-bind="{...field, ...formField.props}"
+						v-model="model[index].modelValue"
 						fluid
 						no-margin
 						class="form__field"
@@ -45,16 +46,11 @@
 <script setup>
 import { Form, Field } from 'vee-validate';
 
-const props = defineProps({
-	form: {
-		type: Array,
-		required: true
-	}
-});
+const model = defineModel('modelValue');
 
-function isValidatableComponent(componentName) {
-	const validatableTypes = ['Input', 'Group', 'Select', 'Area'];
-	return validatableTypes.some(type => componentName.includes(type));
+function isValidComponent(componentName) {
+	const validTypes = ['Input', 'Group', 'Select', 'Area'];
+	return validTypes.some(type => componentName.includes(type));
 };
 
 function computedRules(field) {
@@ -76,6 +72,17 @@ function resolveInputState({ validated, valid }, successFeedback = true) {
 
 	return valid ? 'default' : 'invalid';
 }
+
+function formValues() {
+	return model.value.map(field => ({
+		name: field.name,
+		value: field.modelValue,
+	}));
+}
+
+defineExpose({
+	formValues,
+})
 </script>
 
 <style lang="scss" scoped>
