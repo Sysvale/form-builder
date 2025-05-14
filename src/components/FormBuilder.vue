@@ -73,6 +73,7 @@
 							<component
 								:is="item.component"
 								v-bind="item.props"
+								v-model="item.modelValue"
 								fluid
 								class="inp"
 							>
@@ -86,7 +87,7 @@
 			</div>
 
 			<div v-else>
-				<FormReader :form="selectedElements" />
+				<FormReader v-model="selectedElements"/>
 			</div>
 		</div>
 
@@ -464,6 +465,7 @@ function highlightAllCodeBlocks() {
 	background-color: $n-0;
 	overflow-y: scroll;
 	max-height: 100vh;
+	border: 1px solid $n-30;
 }
 
 .center-container {
@@ -504,6 +506,7 @@ function highlightAllCodeBlocks() {
 	z-index: 90;
 	max-height: 100vh;
 	overflow-y: scroll;
+	border: 1px solid $n-30;
 }
 
 .draggable-elements {
