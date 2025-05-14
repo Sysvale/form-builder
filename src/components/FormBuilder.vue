@@ -198,6 +198,7 @@ import FormReader from "./FormReader.vue";
 import FeatureBlockingOverlay from "./FeatureBlockingOverlay.vue";
 import hljs from "highlight.js/lib/core";
 import "highlight.js/styles/atom-one-light.css";
+import { useChangeCase } from '@vueuse/integrations/useChangeCase'
 
 import html from "highlight.js/lib/languages/xml";
 import json from "highlight.js/lib/languages/json";
@@ -259,6 +260,7 @@ const sideSheetSegments = ref([
 function cloneElement(element) {
 	return {
 		id: CdsUtils.uuidv4(),
+		name: `${useChangeCase(element.label, 'pascalCase').value}-${selectedElements.value.length + 1}`,
 		label: element.label,
 		component: element.component,
 		props: JSON.parse(JSON.stringify(element.props)),
