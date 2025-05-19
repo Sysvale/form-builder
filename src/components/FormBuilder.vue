@@ -100,13 +100,41 @@
 				@click="handleSegmentClick"
 			/>
 
-			<pre v-if="activeSegment.value === 'json'">
-				<code class="language-json" v-html="formattedJson"></code>
-			</pre>
+			<div v-if="activeSegment.value === 'json'">
+				<CdsFlexbox
+					justify="end"
+					class="clipboard-button__container"
+				>
+					<CdsIconButton
+						size="sm"
+						icon="copy-outline"
+						tooltipText="Copiar JSON"
+						@click="copyJsonToClipboard"
+					/>
+				</CdsFlexbox>
 
-			<pre v-if="activeSegment.value === 'code'">
-				<code class="language-html" v-html="parseJSONToVue"></code>
-			</pre>
+				<pre class="code-block">
+					<code class="language-json" v-html="formattedJson"></code>
+				</pre>
+			</div>
+
+			<div v-if="activeSegment.value === 'code'">
+				<CdsFlexbox
+					justify="end"
+					class="clipboard-button__container"
+				>
+					<CdsIconButton
+						size="sm"
+						icon="copy-outline"
+						tooltipText="Copiar Código"
+						@click="copyCodeToClipboard"
+					/>
+				</CdsFlexbox>
+
+				<pre class="code-block">
+					<code class="language-html" v-html="parseJSONToVue"></code>
+				</pre>
+			</div>
 
 			<div
 				v-if="activeSegment.value === 'props' && selectedElement"
@@ -335,6 +363,15 @@ function duplicateElement(index) {
 	selectedElements.value.splice(index + 1, 0, clonedElement);
 }
 
+function copyJsonToClipboard() {
+	const jsonString = JSON.stringify(selectedElements.value, null, 2);
+	navigator.clipboard.writeText(jsonString);
+}
+
+function copyCodeToClipboard() {
+	navigator.clipboard.writeText(vueCode.value);
+}
+
 const formattedJson = computed(() => {
 	return hljs.highlight(JSON.stringify(selectedElements.value, null, 2), {
 		language: "json",
@@ -433,6 +470,16 @@ function highlightAllCodeBlocks() {
 
 <style lang="scss" scoped>
 @import "../../node_modules/@sysvale/cuida/dist/@sysvale/tokens.scss";
+
+.clipboard-button__container {
+	margin: mt(4);
+	top: 112px;
+	right: 32px;
+}
+
+.code-block {
+	margin: mt(n12);
+}
 
 .props-fields {
 	display: flex;
