@@ -1,6 +1,6 @@
 {
   "name": "@sysvale/form-builder",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "private": false,
   "type": "module",
   "main": "dist/form-builder.umd.js",
@@ -21,7 +21,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@sysvale/cuida": "3.108.1",
+    "@sysvale/cuida": "3.113.0",
     "@vee-validate/i18n": "^4.10.5",
     "@vee-validate/rules": "^4.10.5",
     "@vueuse/integrations": "^13.2.0",
