@@ -1,11 +1,12 @@
+//Componentes disponíveis para Drag and drop
 export const inputTypes = {
 	page: [
 		{
-			id: '1',
 			label: 'Título',
 			subtitle: 'Cabeçalho para o formulário',
 			category: 'Página',
 			component: 'CdsText',
+			icon: 'heading-1-outline',
 			props: {
 				modelValue: null,
 				as: 'h3',
@@ -15,11 +16,11 @@ export const inputTypes = {
 			validation: {},
 		},
 		{
-			id: '2',
 			label: 'Subtítulo',
 			subtitle: 'Cabeçalho para seções ou detalhamento de títulos',
 			category: 'Página',
 			component: 'CdsText',
+			icon: 'heading-2-outline',
 			props: {
 				modelValue: null,
 				as: 'h6',
@@ -29,11 +30,11 @@ export const inputTypes = {
 			validation: {},
 		},
 		{
-			id: '3',
 			label: 'Parágrafo',
 			subtitle: 'Elemento usado para textos',
 			category: 'Página',
 			component: 'CdsText',
+			icon: 'paragraph-outline',
 			props: {
 				modelValue: null,
 				as: 'p',
@@ -42,22 +43,22 @@ export const inputTypes = {
 			validation: {},
 		},
 		{
-			id: '4',
 			label: 'Linha Divisória',
 			subtitle: 'Separador visual entre seções.',
 			category: 'Página',
 			component: 'CdsDivider',
+			icon: 'divider-outline',
 			props: {
 				modelValue: null,
 			},
 			validation: {},
 		},
 		{
-			id: '5',
 			label: 'Card de aviso',
 			subtitle: 'Elemento para alertas ou avisos',
 			category: 'Página',
 			component: 'CdsAlertCard',
+			icon: 'info-outline',
 			props: {
 				modelValue: null,
 				title: 'Aviso',
@@ -68,13 +69,13 @@ export const inputTypes = {
 			validation: {},
 		},
 	],
-	text: [
+	content: [
 		{
-			id: '6',
 			label: 'Resposta curta',
 			subtitle: 'Campo de texto curto',
 			component: 'CdsTextInput',
-			category: 'Texto',
+			category: 'Conteúdo',
+			icon: 'short-text-outline',
 			props: {
 				modelValue: null,
 				inputType: 'text',
@@ -89,13 +90,12 @@ export const inputTypes = {
 			},
 		},
 		{
-			id: '7',
 			label: 'Resposta longa',
 			subtitle: 'Campo de texto multilinha.',
 			type: 'text-area',
 			component: 'CdsTextArea',
-			icon: 'menu-outline',
-			category: 'Texto',
+			icon: 'long-text-outline',
+			category: 'Conteúdo',
 			props: {
 				modelValue: null,
 				label: 'Texto longo',
@@ -108,13 +108,12 @@ export const inputTypes = {
 			},
 		},
 		{
-			id: '8',
 			label: 'Número',
 			subtitle: 'Campo que permite apenas números',
 			type: 'number-input',
 			component: 'CdsNumberInput',
-			icon: 'menu-outline',
-			category: 'Texto',
+			icon: 'number-outline',
+			category: 'Conteúdo',
 			props: {
 				modelValue: null,
 				label: 'Valor',
@@ -128,13 +127,12 @@ export const inputTypes = {
 			},
 		},
 		{
-			id: '9',
 			label: 'Telefone',
 			subtitle: 'Campo para números de telefone.',
 			type: 'number-input',
 			component: 'CdsNumberInput',
 			icon: 'phone-outline',
-			category: 'Texto',
+			category: 'Conteúdo',
 			props: {
 				modelValue: null,
 				inputType: 'tel',
@@ -150,13 +148,12 @@ export const inputTypes = {
 			},
 		},
 		{
-			id: '10',
 			label: 'Email',
 			subtitle: 'Campo de e-mail.',
 			type: 'CdsTextInput',
 			component: 'CdsTextInput',
-			icon: 'mail-outline',
-			category: 'Texto',
+			icon: 'at-outline',
+			category: 'Conteúdo',
 			props: {
 				modelValue: null,
 				inputType: 'email',
@@ -171,13 +168,12 @@ export const inputTypes = {
 			},
 		},
 		{
-			id: '11',
 			label: 'Data',
 			subtitle: 'Campo de data',
 			type: 'date-input',
 			component: 'CdsDateInput',
 			icon: 'calendar-outline',
-			category: 'Texto',
+			category: 'Conteúdo',
 			props: {
 				modelValue: null,
 				label: 'Data',
@@ -199,11 +195,10 @@ export const inputTypes = {
 	],
 	choice: [
 		{
-			id: '12',
 			label: 'Escolha',
 			subtitle: 'Campo de escolha única',
 			type: 'radio-button-group',
-			icon: 'checkbox-checked-outlined',
+			icon: 'single-select-outline',
 			category: 'Escolha',
 			component: 'CdsRadioButtonGroup',
 			props: {
@@ -233,7 +228,6 @@ export const inputTypes = {
 			},
 		},
 		{
-			id: '13',
 			label: 'Múltipla escolha',
 			subtitle: 'Campo de múltipla escolha',
 			type: 'multiselect',
@@ -266,7 +260,7 @@ export const inputTypes = {
 			},
 		},
 	],
-  };
+};
 
 export const propTypes = {
 	label: {
