@@ -187,7 +187,7 @@
 									v-bind="field"
 									:is="field.editor"
 									:label="field.label"
-									:model-value="selectedElement.rules"
+									v-model="field.modelValue"
 									@update:model-value="handleRulesUpdate(field, $event)"
 									fluid
 									ref="inputRefs2"
