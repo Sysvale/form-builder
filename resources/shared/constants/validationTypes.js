@@ -42,6 +42,7 @@ export const validationTypes = {
 	alpha: {
 		type: 'string',
 		editor: 'CdsSelect',
+		modelValue: null,
 		options: [
 			{
 				label: 'alpha',
@@ -66,27 +67,6 @@ export const validationTypes = {
 		],
 		defaultValue: 'false',
 		label: 'Tipo de validação',
-		description: 'Texto exibido acima do campo'
-	},
-	alpha_num: {
-		type: 'string',
-		editor: 'CdsTextInput',
-		defaultValue: '',
-		label: 'alpha_num',
-		description: 'Texto exibido acima do campo'
-	},
-	alpha_spaces: {
-		type: 'string',
-		editor: 'CdsTextInput',
-		defaultValue: '',
-		label: 'alpha_spaces',
-		description: 'Texto exibido acima do campo'
-	},
-	alpha_dash: {
-		type: 'string',
-		editor: 'CdsTextInput',
-		defaultValue: '',
-		label: 'alpha_dash',
 		description: 'Texto exibido acima do campo'
 	},
 };
