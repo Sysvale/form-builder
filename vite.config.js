@@ -11,12 +11,12 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@': fileURLToPath(new URL('./resources', import.meta.url))
     },
   },
   build: {
     lib: {
-      entry: resolve(__dirname, 'src/index.js'),
+      entry: resolve(__dirname, 'resources/index.js'),
       name: 'FormBuilder',
       fileName: (format) => `form-builder.${format}.js`
     },

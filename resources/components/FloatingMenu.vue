@@ -5,6 +5,7 @@
 		gap="1"
 	>
 		<CdsIcon
+			v-if="!hideSettings"
 			height="20"
 			width="20"
 			name="settings-outline"
@@ -31,6 +32,13 @@
 </template>
 
 <script setup>
+const props = defineProps({
+	hideSettings: {
+		type: Boolean,
+		default: false,
+	}
+});
+
 const emits = defineEmits(['config', 'clone', 'delete']);
 </script>
 

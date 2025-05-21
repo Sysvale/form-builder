@@ -60,6 +60,7 @@
 						<Transition>
 							<FloatingMenu
 								v-if="hoveredElement === item.id"
+								:hide-settings="Object.keys(item.props).length === 0"
 								@config="handleSideSheet(item)"
 								@delete="handleDelete(item)"
 								@clone="duplicateElement(index)"
@@ -141,10 +142,7 @@
 				class="props-fields"
 			>
 				<CdsText as="h5" no-margin>
-					Campo
-					<CdsHighlight animated>
-						{{ selectedElement.label }}
-					</CdsHighlight>
+					Campo {{ selectedElement.label }}
 				</CdsText>
 
 				<CdsFlexbox direction="column" gap="4">
@@ -214,12 +212,10 @@ import {
 	inject,
 } from "vue";
 import { VueDraggable } from "vue-draggable-plus";
-import {
-	inputTypes,
-	propTypes,
-	componentProps,
-	validationTypes,
-} from "../utils/constants/inputs";
+import { inputTypes } from "../shared/constants/inputs";
+import { propTypes } from "../shared/constants/propTypes";
+import { componentProps } from "../shared/constants/componentProps";
+import { validationTypes } from "../shared/constants/validationTypes";
 import FloatingMenu from "./FloatingMenu.vue";
 import FormElement from "./FormElement.vue";
 import SegmentedControl from "./SegmentedControl.vue";
@@ -241,12 +237,20 @@ hljs.configure({
 	tabReplace: " ",
 });
 
+const props = defineProps({
+	hideCodeTab: {
+		type: Boolean,
+		default: false,
+	},
+	hideJSONTab: {
+		type: Boolean,
+		default: false,
+	},
+});
+
 const elementList = ref(inputTypes);
 const selectedElements = ref([]);
-const activeSegment = ref({
-	label: "JSON",
-	value: "json",
-});
+const activeSegment = ref({});
 const activeCanvasSegment = ref({
 	label: "Builder",
 	value: "builder",
@@ -270,21 +274,7 @@ const canvasSegments = ref([
 	},
 ]);
 
-const sideSheetSegments = ref([
-	{
-		label: "JSON",
-		value: "json",
-	},
-	{
-		label: "Code",
-		value: "code",
-	},
-	{
-		label: "Props",
-		value: "props",
-		disabled: true,
-	},
-]);
+const sideSheetSegments = ref([]);
 
 function cloneElement(element) {
 	return {
@@ -457,7 +447,36 @@ watchEffect(() => {
 	}
 });
 
-onMounted(highlightAllCodeBlocks);
+onMounted(() => {
+	highlightAllCodeBlocks;
+	let allSideSheetSegments = [
+		{
+			label: "JSON",
+			value: "json",
+		},
+		{
+			label: "Code",
+			value: "code",
+		},
+		{
+			label: "Props",
+			value: "props",
+			disabled: true,
+		},
+	];
+
+	sideSheetSegments.value = allSideSheetSegments.filter((segment) => {
+		if (segment.value === "code") {
+			return !props.hideCodeTab;
+		} else if (segment.value === "json") {
+			return !props.hideJSONTab;
+		}
+
+		return true;
+	});
+
+	activeSegment.value = sideSheetSegments.value[0];
+});
 
 function highlightAllCodeBlocks() {
 	nextTick(() => {
