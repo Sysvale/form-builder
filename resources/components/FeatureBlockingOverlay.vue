@@ -33,7 +33,6 @@ function handleClick() {
 	border-radius: $border-radius-small;
 
 	&:hover {
-		border: 1px solid $n-0;
 		border-radius: $border-radius-small;
 		background: radial-gradient(
 				ellipse at center,

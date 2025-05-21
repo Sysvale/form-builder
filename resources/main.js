@@ -8,8 +8,8 @@ import validationConfig from "./validationConfig";
 const app = createApp(App);
 
 const validateConfig = {
-  inject: true,
-  fieldsBagName: "veeFields",
+	inject: true,
+	fieldsBagName: "veeFields",
 };
 
 const cdsUtils = Cuida.utils;
@@ -17,8 +17,8 @@ const cdsUtils = Cuida.utils;
 app.use(Cuida);
 app.use(VeeValidate, validateConfig);
 app.use(VeeValidate, {
-  inject: true,
-  fieldsBagName: "veeFields",
+	inject: true,
+	fieldsBagName: "veeFields",
 });
 
 app.provide("cdsUtils", cdsUtils);
