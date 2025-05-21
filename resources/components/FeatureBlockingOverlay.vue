@@ -11,7 +11,7 @@
 <script setup>
 const props = defineProps({
 	active: {
-		type: String,
+		type: Boolean,
 		default: '',
 	},
 });

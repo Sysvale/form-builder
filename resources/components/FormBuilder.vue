@@ -154,7 +154,8 @@
 						<div v-for="field in settingsPropsForm" :key="field.prop">
 							<component
 								:is="field.editor"
-								:label="field.label"
+								v-bind="field"
+								returnValue
 								v-model="selectedElement.props[field.prop]"
 								fluid
 								ref="inputRefs2"
@@ -163,7 +164,7 @@
 					</CdsFlexbox>
 				</CdsFlexbox>
 
-				<template v-if="selectedElement?.component !== 'CdsText'">
+				<template v-if="selectedElement?.component !== 'CdsText' && selectedElement?.component !== 'CdsAlertCard'">
 					<CdsFlexbox direction="column" gap="4">
 						<CdsSpacer margin-bottom="3">
 							<CdsDivider text="Validação" />
@@ -330,8 +331,8 @@ function handleRulesUpdate(field, value) {
 		rule.includes(field.prop)
 	);
 
-	const isSimpleRule =
-		field.prop.includes("alpha") || field.prop.includes("required");
+	const isSimpleRule = field.prop.includes("alpha") || field.prop.includes("required");
+
 	const rule = isSimpleRule
 		? `${value?.label || field.prop}`
 		: `${field.prop}:${value}`;
