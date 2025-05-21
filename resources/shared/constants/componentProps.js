@@ -67,7 +67,9 @@ export const componentProps = {
 	},
 	'CdsAlertCard': {
 		props: [
-			'text',
+			'title',
+			'subtitle',
+			'variant',
 		],
 		validation: [],
 	},

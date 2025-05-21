@@ -16,9 +16,23 @@ export const propTypes = {
 	},
 	content: {
 		type: 'string',
-		editor: 'CdsTextArea',
+		editor: 'CdsTextInput',
 		defaultValue: 'Digite algo...',
 		label: 'Descrição do campo',
+		description: 'Texto exibido quando o campo está vazio'
+	},
+	title: {
+		type: 'string',
+		editor: 'CdsTextInput',
+		defaultValue: 'Digite algo...',
+		label: 'Título',
+		description: 'Texto exibido quando o campo está vazio'
+	},
+	subtitle: {
+		type: 'string',
+		editor: 'CdsTextArea',
+		defaultValue: 'Digite algo...',
+		label: 'Subtítulo',
 		description: 'Texto exibido quando o campo está vazio'
 	},
 	text: {
@@ -52,10 +66,24 @@ export const propTypes = {
 	variant: {
 		type: 'enum',
 		editor: 'CdsSelect',
-		options: ['info', 'success', 'warning', 'error'],
-		defaultValue: 'info',
+		options: [
+			{
+				value: 'info',
+				label: 'info',
+				id: 'info',
+			},
+			{
+				value: 'danger',
+				label: 'danger',
+				id: 'danger',
+			},
+			{
+				value:'warning',
+				label:'warning',
+				id:'warning',
+			}
+		],
 		label: 'Variante',
-		description: 'Estilo visual do componente'
 	},
 	minLength: {
 		type: 'number',
