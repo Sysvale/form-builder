@@ -1,5 +1,5 @@
 // Componentes que devem ser renderizados para manipulação das props dos componentes de drag and drop
-export const propTypes = {
+export const propEditors = {
 	label: {
 		type: 'string',
 		editor: 'CdsTextInput',
@@ -41,6 +41,13 @@ export const propTypes = {
 		defaultValue: 'Digite algo...',
 		label: 'Descrição do campo',
 		description: 'Texto exibido quando o campo está vazio'
+	},
+	range: {
+		type: 'boolean',
+		editor: 'CdsSwitch',
+		defaultValue: false,
+		label: 'Período',
+		description: 'Quando ativo permite que o usuário selecione uma data de início e outra de fi'
 	},
 	options: {
 		type: 'string',

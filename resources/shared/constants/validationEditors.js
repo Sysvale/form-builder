@@ -1,5 +1,5 @@
 // Componentes que devem ser renderizados para manipulação das validações dos componentes de drag and drop
-export const validationTypes = {
+export const validationEditors = {
 	required: {
 		type: 'boolean',
 		editor: 'CdsSwitch',

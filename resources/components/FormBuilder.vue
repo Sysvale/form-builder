@@ -213,10 +213,10 @@ import {
 	inject,
 } from "vue";
 import { VueDraggable } from "vue-draggable-plus";
-import { inputTypes } from "../shared/constants/inputs";
-import { propTypes } from "../shared/constants/propTypes";
-import { componentProps } from "../shared/constants/componentProps";
-import { validationTypes } from "../shared/constants/validationTypes";
+import { formElements } from "../shared/constants/formElements";
+import { propEditors } from "../shared/constants/propEditors";
+import { componentsSchema } from "../shared/constants/componentsSchema";
+import { validationEditors } from "../shared/constants/validationEditors";
 import FloatingMenu from "./FloatingMenu.vue";
 import FormElement from "./FormElement.vue";
 import SegmentedControl from "./SegmentedControl.vue";
@@ -249,7 +249,7 @@ const props = defineProps({
 	},
 });
 
-const elementList = ref(inputTypes);
+const elementList = ref(formElements);
 const selectedElements = ref([]);
 const activeSegment = ref({});
 const activeCanvasSegment = ref({
@@ -292,7 +292,7 @@ function cloneElement(element) {
 function handleSideSheet(item) {
 	selectedElement.value = item;
 
-	const componentConfig = componentProps[item.component];
+	const componentConfig = componentsSchema[item.component];
 	propsToEdit.value = componentConfig.props;
 	validationFieldsToEdit.value = componentConfig.validation;
 
@@ -303,12 +303,12 @@ function handleSideSheet(item) {
 
 	settingsPropsForm.value = propsToEdit.value.map((prop) => ({
 		prop,
-		...propTypes[prop],
+		...propEditors[prop],
 	}));
 
 	settingValidationForm.value = validationFieldsToEdit.value.map((prop) => ({
 		prop,
-		...validationTypes[prop],
+		...validationEditors[prop],
 	}));
 }
 

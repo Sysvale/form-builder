@@ -1,4 +1,4 @@
-export const componentProps = {
+export const componentsSchema = {
 	'CdsTextInput': {
 		props: [
 			'label',
@@ -10,6 +10,18 @@ export const componentProps = {
 			'alpha',
 			'max',
 			'min',
+		],
+	},
+	'PhoneInput': {
+		props: [
+			'label',
+			'placeholder',
+			'required',
+		],
+		validation: [
+			'required',
+			'max_value',
+			'min_value',
 		],
 	},
 	'CdsNumberInput': {
