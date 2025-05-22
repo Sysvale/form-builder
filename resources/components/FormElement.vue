@@ -40,7 +40,7 @@ const props = defineProps({
 	display: flex;
 	gap: 12px;
 	align-items: center;
-	padding: pa(3);
+	padding: py(3);
 
 	&:hover {
 		cursor: grab;

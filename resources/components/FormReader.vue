@@ -5,7 +5,7 @@
 				<Field
 					v-if="isValidComponent(formField.component)"
 					v-slot="{ field, errors, meta }"
-					:name="formField.name || `field-${index}`"
+					:name="formField.props.label"
 					:rules="computedRules(formField)"
 					:validate-on-update-model="false"
 					:validate-on-change="false"

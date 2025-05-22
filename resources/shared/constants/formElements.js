@@ -1,5 +1,5 @@
 //Componentes disponíveis para Drag and drop
-export const inputTypes = {
+export const formElements = {
 	page: [
 		{
 			label: 'Título',
@@ -12,7 +12,6 @@ export const inputTypes = {
 				noMargin: true,
 				content: 'Título de exemplo',
 			},
-			validation: {},
 		},
 		{
 			label: 'Subtítulo',
@@ -25,7 +24,6 @@ export const inputTypes = {
 				noMargin: true,
 				content: 'Subtítulo de exemplo',
 			},
-			validation: {},
 		},
 		{
 			label: 'Parágrafo',
@@ -37,7 +35,6 @@ export const inputTypes = {
 				as: 'p',
 				content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
 			},
-			validation: {},
 		},
 		{
 			label: 'Linha Divisória',
@@ -46,7 +43,6 @@ export const inputTypes = {
 			component: 'CdsDivider',
 			icon: 'divider-outline',
 			props: {},
-			validation: {},
 		},
 		{
 			label: 'Card de aviso',
@@ -60,7 +56,6 @@ export const inputTypes = {
 				variant: 'info',
 				withIcon: true,
 			},
-			validation: {},
 		},
 	],
 	content: [
@@ -77,11 +72,6 @@ export const inputTypes = {
 				label: 'Texto curto',
 				placeholder: 'Digite algo...',
 			},
-			validation: {
-				required: false,
-				minLength: 0,
-				maxLength: 100,
-			},
 		},
 		{
 			label: 'Resposta longa',
@@ -94,11 +84,6 @@ export const inputTypes = {
 				modelValue: null,
 				label: 'Texto longo',
 				placeholder: 'Digite algo...',
-			},
-			validation: {
-				required: false,
-				minLength: 0,
-				maxLength: 500,
 			},
 		},
 		{
@@ -113,11 +98,6 @@ export const inputTypes = {
 				label: 'Valor',
 				placeholder: 'Digite algo...',
 				money: false,
-			},
-			validation: {
-				required: false,
-				minLength: 0,
-				maxLength: 500,
 			},
 		},
 		{
@@ -135,11 +115,6 @@ export const inputTypes = {
 				placeholder: '(__) _____-____',
 				mask: '(##) #####-####',
 			},
-			validation: {
-				required: false,
-				minLength: 0,
-				maxLength: 500,
-			},
 		},
 		{
 			label: 'Email',
@@ -154,11 +129,6 @@ export const inputTypes = {
 				lazy: false,
 				label: 'Email',
 				placeholder: 'Ex.: mail@exemplo.com',
-			},
-			validation: {
-				required: false,
-				minLength: 0,
-				maxLength: 500,
 			},
 		},
 		{
@@ -179,11 +149,6 @@ export const inputTypes = {
 				errorMessage: 'Campo obrigatório',
 				minDate: '2025-01-10',
 				maxDate: '2025-03-20',
-			},
-			validation: {
-				required: false,
-				minLength: 0,
-				maxLength: 500,
 			},
 		},
 	],
@@ -215,11 +180,6 @@ export const inputTypes = {
 				],
 				variant: 'blue',
 			},
-			validation: {
-				required: false,
-				minOptions: 1,
-				maxOptions: 1,
-			},
 		},
 		{
 			label: 'Múltipla escolha',
@@ -246,11 +206,6 @@ export const inputTypes = {
 					},
 				],
 				variant: 'blue',
-			},
-			validation: {
-				required: false,
-				minOptions: 1,
-				maxOptions: 1,
 			},
 		},
 	],
